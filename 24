@@ -1,0 +1,31 @@
+import React from 'react';
+import { Bot, User } from 'lucide-react';
+
+interface ChatMessageProps {
+  sender: 'user' | 'ai';
+  text: string;
+  isLoading?: boolean;
+}
+
+export const ChatMessage: React.FC<ChatMessageProps> = ({ sender, text, isLoading = false }) => {
+  const isAI = sender === 'ai';
+
+  return (
+    <div className={`flex items-start gap-3 ${isAI ? '' : 'flex-row-reverse'}`}>
+      <div className={`flex-shrink-0 h-8 w-8 rounded-full flex items-center justify-center ${isAI ? 'bg-brand-blue' : 'bg-brand-gray-dark'}`}>
+        {isAI ? <Bot size={20} className="text-white" /> : <User size={20} className="text-brand-gray-light" />}
+      </div>
+      <div className={`relative px-4 py-2 rounded-lg max-w-md ${isAI ? 'bg-brand-gray-dark' : 'bg-brand-blue'}`}>
+        {isLoading ? (
+          <div className="flex items-center space-x-1">
+            <span className="h-2 w-2 bg-white/50 rounded-full animate-pulse [animation-delay:-0.3s]"></span>
+            <span className="h-2 w-2 bg-white/50 rounded-full animate-pulse [animation-delay:-0.15s]"></span>
+            <span className="h-2 w-2 bg-white/50 rounded-full animate-pulse"></span>
+          </div>
+        ) : (
+          <p className="text-white">{text}</p>
+        )}
+      </div>
+    </div>
+  );
+};

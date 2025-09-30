@@ -1,0 +1,26 @@
+import React from 'react';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Features from './components/Features';
+import HowItWorks from './components/HowItWorks';
+import Sources from './components/Sources';
+import Pricing from './components/Pricing';
+import Footer from './components/Footer';
+
+function App() {
+  return (
+    <div className="relative flex flex-col min-h-screen bg-brand-dark overflow-x-hidden">
+      <Header />
+      <main className="flex-grow">
+        <Hero />
+        <Features />
+        <HowItWorks />
+        <Sources />
+        <Pricing />
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+export default App;

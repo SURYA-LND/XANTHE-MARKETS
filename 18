@@ -1,0 +1,81 @@
+import React from 'react';
+import { ArrowUpRight, Github, Twitter, Linkedin, Disc } from 'lucide-react';
+
+const Footer: React.FC = () => {
+  const resources = [
+    { name: 'Support', href: '#' },
+    { name: 'Blog', href: '#' },
+    { name: 'API Docs', href: '#' },
+  ];
+  const company = [
+    { name: 'About Us', href: '#' },
+    { name: 'Careers', href: '#' },
+    { name: 'Privacy Policy', href: '#' },
+    { name: 'Terms of Service', href: '#' },
+  ];
+  const social = [
+    { name: 'Discord', href: '#', icon: Disc },
+    { name: 'GitHub', href: '#', icon: Github },
+    { name: 'Twitter', href: '#', icon: Twitter },
+    { name: 'LinkedIn', href: '#', icon: Linkedin },
+  ];
+
+  return (
+    <footer className="bg-brand-gray/30 border-t border-brand-gray-dark">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+          <div className="col-span-2 md:col-span-4 lg:col-span-1 mb-8 md:mb-0">
+            <a href="#" className="text-2xl font-bold tracking-tighter text-white">
+              MarketPulse<span className="text-brand-blue">.AI</span>
+            </a>
+            <p className="mt-2 text-sm text-brand-gray-light max-w-xs">
+              Your daily digest of financial market intelligence.
+            </p>
+          </div>
+          <div className="col-span-1 lg:col-start-3">
+            <h3 className="font-semibold text-white tracking-wider">Resources</h3>
+            <ul className="mt-4 space-y-3">
+              {resources.map((item) => (
+                <li key={item.name}>
+                  <a href={item.href} className="flex items-center text-brand-gray-light hover:text-white transition-colors">
+                    {item.name} <ArrowUpRight className="ml-1" size={14} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold text-white tracking-wider">Company</h3>
+            <ul className="mt-4 space-y-3">
+              {company.map((item) => (
+                <li key={item.name}>
+                  <a href={item.href} className="text-brand-gray-light hover:text-white transition-colors">
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold text-white tracking-wider">Social</h3>
+            <ul className="mt-4 space-y-3">
+              {social.map((item) => (
+                <li key={item.name}>
+                  <a href={item.href} className="flex items-center text-brand-gray-light hover:text-white transition-colors">
+                    <item.icon className="mr-2" size={18} />
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="mt-12 border-t border-brand-gray-dark pt-8 text-center text-sm text-brand-gray-light">
+          <p>&copy; 2025 MarketPulse.AI. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
